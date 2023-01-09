@@ -89,15 +89,14 @@ body {
     font-family: "Press Start 2P", cursive;
     font-size: 1rem;
     color: #fef2bf;
-    margin-top: 200px;
+    margin-top: 20px;
   }
 
   body {
-    height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0;
   }
 }

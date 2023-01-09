@@ -15,8 +15,8 @@ $(window).on("load", function () {
 });
 $(window).resize(function () {
   windowWidth = $(window).width();
-  console.log(windowResize);
-  if (windowResize <= 500) {
+  console.log(windowWidth);
+  if (windowWidth <= 500) {
     $("#level-title").html("Touch anywhere to start");
   } else {
     $("#level-title").html("Press A key to start");
@@ -78,8 +78,8 @@ function checkAnswer(currentLevel) {
   }
 }
 
-$(document).on("tap", function () {
-  // console.log(this);
+$("html").on("click", function () {
+  console.log(this);
   if (!firstTap) {
     $("#level-title").text(`Level ${level}`);
     nextSequence();
