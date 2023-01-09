@@ -5,9 +5,10 @@ body {
 
 #level-title {
   font-family: "Press Start 2P", cursive;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 5%;
   color: #fef2bf;
+  /* width: 50%; */
 }
 
 .container {
@@ -19,8 +20,8 @@ body {
 .btn {
   margin: 25px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 180px;
   border: 10px solid black;
   border-radius: 20%;
   cursor: pointer;
@@ -50,4 +51,53 @@ body {
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1024px) {
+  .btn {
+    margin: 25px;
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border: 10px solid black;
+    border-radius: 20%;
+    cursor: pointer;
+  }
+
+  #level-title {
+    font-family: "Press Start 2P", cursive;
+    font-size: 2rem;
+    margin: 5%;
+    color: #fef2bf;
+    /* width: 50%; */
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .btn {
+    margin: 25px;
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    border: 5px solid black;
+    border-radius: 20%;
+    cursor: pointer;
+  }
+
+  #level-title {
+    font-family: "Press Start 2P", cursive;
+    font-size: 1rem;
+    color: #fef2bf;
+    margin-top: 200px;
+  }
+
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
 }

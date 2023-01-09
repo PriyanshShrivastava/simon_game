@@ -1,9 +1,27 @@
 let btnColours = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userClickedPattern = [];
-
+let firstTap = false;
+let windowWidth = 0;
+// let windowResize = 0;
 let firstKeyPressed = false;
 let level = 0;
+
+$(window).on("load", function () {
+  windowWidth = $(window).width();
+  if (windowWidth <= 500) {
+    $("#level-title").html("Touch anywhere to start");
+  }
+});
+$(window).resize(function () {
+  windowWidth = $(window).width();
+  console.log(windowResize);
+  if (windowResize <= 500) {
+    $("#level-title").html("Touch anywhere to start");
+  } else {
+    $("#level-title").html("Press A key to start");
+  }
+});
 
 $(document).on("keypress", function () {
   if (!firstKeyPressed) {
@@ -50,11 +68,24 @@ function checkAnswer(currentLevel) {
       $("body").removeClass("game-over");
     }, 200);
 
-    $("h1").text("Game Over, Press Any Key to Restart again");
+    if (windowWidth >= 500) {
+      $("h1").text("Game Over, Press Any Key to start again!");
+    } else {
+      $("h1").text("Game Over, touch anywhere to start again!");
+    }
 
     startOver();
   }
 }
+
+$(document).on("tap", function () {
+  // console.log(this);
+  if (!firstTap) {
+    $("#level-title").text(`Level ${level}`);
+    nextSequence();
+    firstTap = true;
+  }
+});
 
 function nextSequence() {
   userClickedPattern = [];
@@ -73,6 +104,7 @@ function nextSequence() {
 
 function startOver() {
   firstKeyPressed = false;
+  firstTap = false;
   level = 0;
 
   gamePattern = [];
