@@ -64,22 +64,20 @@ function checkAnswer(currentLevel) {
 
     $("body").addClass("game-over");
 
+    if (windowWidth >= 500) {
+      $("h1").html("Game Over, Press Any Key to start again!");
+    } else {
+      $("h1").html("Game Over, refresh this page to start again!");
+    }
     setTimeout(function () {
       $("body").removeClass("game-over");
-    }, 200);
-
-    if (windowWidth >= 500) {
-      $("h1").text("Game Over, Press Any Key to start again!");
-    } else {
-      $("h1").text("Game Over, touch anywhere to start again!");
-    }
+    }, 500);
 
     startOver();
   }
 }
 
-$("html").on("click", function () {
-  console.log(this);
+$(document).on("click", function () {
   if (!firstTap) {
     $("#level-title").text(`Level ${level}`);
     nextSequence();
@@ -104,9 +102,7 @@ function nextSequence() {
 
 function startOver() {
   firstKeyPressed = false;
-  firstTap = false;
   level = 0;
-
   gamePattern = [];
   userClickedPattern = [];
 }
