@@ -10,14 +10,14 @@ let level = 0;
 $(window).on("load", function () {
   windowWidth = $(window).width();
   if (windowWidth <= 500) {
-    $("#level-title").html("Touch anywhere to start");
+    $("#level-title").html("Touch blue area to start");
   }
 });
 $(window).resize(function () {
   windowWidth = $(window).width();
   console.log(windowWidth);
   if (windowWidth <= 500) {
-    $("#level-title").html("Touch anywhere to start");
+    $("#level-title").html("Touch blue area to start");
   } else {
     $("#level-title").html("Press A key to start");
   }
